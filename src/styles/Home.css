@@ -1,0 +1,27 @@
+#questionContainer {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    border: 1px solid #dde0e0;
+    height: auto;
+    margin: auto;
+    margin-top: 2%;
+}
+
+#buttonContainer {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 40px;
+}
+
+.questionsDiv {
+    width: 50%;
+    border: none;
+    color: #707372
+}
+
+.active {
+    background-color: #38c9b9;
+    color: #eeeeee
+}

@@ -1,0 +1,49 @@
+#itemsContainer {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    height: auto;
+    border: 2px solid #dde0e0;
+    border-radius: 5px;
+    margin: 2% auto;
+    padding: 0;
+}
+
+#headingDiv {
+    display: flex;
+    height: 8vh;
+    padding: 5%;
+    background-color: #dde0e0;
+}
+
+#items {
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+}
+
+#texts {
+    display: flex;
+    flex-direction: column
+}
+
+label {
+    display: flex;
+    align-items: flex-start;
+}
+
+input[type="radio"] {
+    margin: 5px;
+}
+
+#submit {
+    display: flex;
+    justify-content: center;
+    color: #38c9b9;
+    border: none;
+    padding: 5px;
+    width: 100%;
+    border-radius: 5px;
+    margin: auto;
+    margin-top: 5%
+}

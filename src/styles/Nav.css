@@ -1,0 +1,26 @@
+        #navContainer {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            border-bottom: 2px solid #38c9b9;
+            height: 8vh;
+        }
+        
+        .navItems {
+            margin: 2% 5% 0% 5%;
+            color: #707372;
+        }
+        
+        .navItems:active {
+            border-bottom: 2px solid #38c9b9
+        }
+        
+        #namePicContainer {
+            display: flex;
+            flex-direction: row;
+        }
+        
+        #namePicContainer img {
+            margin-top: -8pt;
+            margin-right: 2px;
+        }

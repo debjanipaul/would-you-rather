@@ -1,0 +1,57 @@
+#NewQuestionContainer {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    height: auto;
+    border: 2px solid #dde0e0;
+    border-radius: 5px;
+    margin: 2% auto;
+}
+
+#headerDiv {
+    display: flex;
+    height: 8vh;
+    justify-content: center;
+    padding-top: 2%;
+    background-color: #dde0e0;
+}
+
+#texts {
+    padding: 5%
+}
+
+#texts p {
+    font-size: 12pt;
+}
+
+#inputText {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#inputText label {
+    padding-left: 5%
+}
+
+input[type="text"] {
+    width: 90%;
+    color: gray;
+    border: 1px solid gray;
+    border-radius: 3px;
+}
+
+.eachInput {
+    align-self: center;
+    padding: 5px;
+    margin: 2%;
+    height: 5vh;
+}
+
+.submit {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    width: 90%;
+    margin-bottom: 5%;
+}

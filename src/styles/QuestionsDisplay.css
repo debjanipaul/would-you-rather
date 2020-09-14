@@ -1,0 +1,42 @@
+#questionsContainer {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    height: 25vh;
+    border: 1px solid #dde0e0;
+    margin: 10px auto;
+}
+
+#name {
+    height: 7vh;
+    width: 100%;
+    background-color: #dde0e0;
+    border: none;
+}
+
+#name h4 {
+    padding: 15px;
+}
+
+#picAskContainer {
+    display: flex;
+    flex-direction: row;
+    height: 18vh;
+    padding: 10px;
+}
+
+.pic1 {
+    border-right: 2px solid #dde0e0;
+    padding-right: 15px;
+}
+
+#questionDiv {
+    padding-left: 15px;
+}
+
+#questionDiv button {
+    /* width: 45vh; */
+    height: 25px;
+    color: #38c9b9;
+    border: none;
+}

@@ -1,0 +1,44 @@
+#signInContainer {
+    width: 40%;
+    height: 70vh;
+    border: 2px solid #dde0e0;
+    border-radius: 5px;
+    margin: 10% auto;
+}
+
+#SignInHeader {
+    display: flex;
+    flex-direction: column;
+    height: 80px;
+    background-color: rgb(241, 237, 237);
+    align-items: center;
+    border-bottom: 2px solid #dde0e0;
+    padding: 5%;
+}
+
+#SignInHeader p {
+    margin-top: -3%;
+    color: #707372
+}
+
+#signInLogo {
+    padding-top: 15%;
+}
+
+#SignInHeader h3 {
+    display: flex;
+    align-self: center;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    color: #38c9b9;
+}
+
+.submit {
+    margin-top: 5%;
+    min-height: 2.5em;
+    color: #38c9b9;
+    border: 1px solid #dde0e0;
+    border-radius: 5px;
+    width: 100px;
+    padding: 10px;
+}

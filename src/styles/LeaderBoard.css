@@ -1,0 +1,63 @@
+#itemsContainer1 {
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    height: 20vh;
+    border: 1px solid #dde0e0;
+    margin: 10px auto;
+    padding: 1%
+}
+
+.pic2 {
+    border-right: 2px solid #dde0e0;
+    padding: 5%;
+}
+
+#midSection {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin-left: 2%;
+    border-right: 2px solid #dde0e0;
+}
+
+.QuestPoints {
+    display: flex;
+    flex-direction: row;
+}
+
+.QuestPointsItems {
+    display: flex;
+    flex-grow: 2;
+}
+
+.QuestPointsItems1 {
+    margin-right: 5%;
+    justify-content: flex-end;
+}
+
+#scoreDiv {
+    border: 1px solid #dde0e0;
+    width: 20%;
+    margin-left: 5px;
+    padding: 5px;
+}
+
+#scoreDiv h4 {
+    background-color: #dde0e0;
+    height: 50px;
+    text-align: center;
+    margin: -7%;
+    padding-top: 15px;
+}
+
+#scoreDiv p {
+    background-color: #38c9b9;
+    border-radius: 50%;
+    margin: auto;
+    margin-top: 15px;
+    padding: 10px 20px;
+    width: 40%;
+    display: flex;
+    justify-content: center;
+}
