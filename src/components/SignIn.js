@@ -48,7 +48,7 @@ class SignIn extends React.Component {
                             options={friendOptions}
                         />
 
-                        <Link to="/home"><button class="submit">Submit</button></Link>
+                        <Link to="/home"><button className="submit">Submit</button></Link>
                         {/* <button class="submit">Submit</button> */}
                     </div>
                 </div>
