@@ -3,35 +3,44 @@ import '../styles/SignIn.css'
 import { Dropdown, Button } from 'semantic-ui-react'
 import "semantic-ui-css/semantic.min.css";
 import { Link, Route, Switch } from "react-router-dom";
-
-import user1 from '../assets/user1.png';
-import user2 from '../assets/user2.png';
-import user3 from '../assets/user3.png';
-
-const friendOptions = [
-    {
-        key: 'Jenny Hess',
-        text: 'Jenny Hess',
-        value: 'Jenny Hess',
-        image: { avatar: true, src: user1 },
-    },
-    {
-        key: 'Elliot Fu',
-        text: 'Elliot Fu',
-        value: 'Elliot Fu',
-        image: { avatar: true, src: user2 },
-    },
-    {
-        key: 'Stevie Feliciano',
-        text: 'Stevie Feliciano',
-        value: 'Stevie Feliciano',
-        image: { avatar: true, src: user3 },
-    }]
+import { connect } from 'react-redux';
+import { setAuthUser } from '../actions/authUser';
 
 class SignIn extends React.Component {
+
+    state = {
+        value: ''
+    };
+
+    onChange = (e, { value }) => {
+        this.setState({
+            value: value
+        });
+    }
+
+    handleSubmit = e => {
+        e.preventDefault();
+        const { setAuthUser } = this.props;
+        const authUser = this.state.value;
+
+        new Promise((res, rej) => {
+            setTimeout(() => res(), 500);
+        }).then(() => setAuthUser(authUser));
+    };
+
+    generateUsersData = () => {
+        const { users } = this.props;
+
+        return users.map(user => ({
+            key: user.id,
+            text: user.name,
+            value: user.id,
+            image: { avatar: true, src: user.avatarURL }
+        }));
+    };
+
     render() {
         return (
-
             <div>
                 <div id="signInContainer">
                     <div id="SignInHeader">
@@ -41,21 +50,34 @@ class SignIn extends React.Component {
                             <img src={require('../assets/signInNinjaLogo.png')} alt="Sign in Logo"></img>
                         </div>
                         <h3>Sign In</h3>
-                        <Dropdown
-                            placeholder='Select Friend'
-                            fluid
-                            selection
-                            options={friendOptions}
-                        />
+                        <form onSubmit={this.handleSubmit}>
+                            <Dropdown
+                                placeholder='Select Friend'
+                                fluid
+                                selection
+                                options={this.generateUsersData()}
+                                onChange={this.onChange}
+                                value={this.state.value}
+                            />
 
-                        <Link to="/home"><button className="submit">Submit</button></Link>
-                        {/* <button class="submit">Submit</button> */}
+                            <Link to="/"><button className="submit">Login</button></Link>
+                        </form>
                     </div>
                 </div>
             </div>
 
         )
     }
+}
+const ConnectedSiginForm = connect(
+    mapStateToProps,
+    { setAuthUser }
+)(SignIn);
+
+function mapStateToProps({ users }) {
+    return {
+        users: Object.values(users)
+    };
 }
 
 export default SignIn;

@@ -13,18 +13,26 @@ import Error from './Error'
 class App extends React.Component {
 
     componentDidMount() {
-        this.props.dispatch(handleInitialData())
+        this.props.handleInitialData();
     }
     render() {
+        const { authUser } = this.props;
         return (
             <Router>
-                <Route exact={true} path="/" component={SignIn} />
-                <Route path="/home" component={Home} />
-                <Route path="/add" component={NewQuestion} />
-                <Route path="/leaderboard" component={LeaderBoard} />
-                <Route path="/viewPoll" component={ViewPoll} />
-                <Route path="/pollResults" component={PollResults} />
-                <Route path="/Error" component={Error} />
+                {authUser === null ? (
+                    <Route
+                        render={() => (
+                            <SignIn />
+                        )}
+                    />
+                ) : (
+                        <Route exact={true} path="/" component={Home} />
+                    )}
+                {/* // <Route path="/add" component={NewQuestion} />
+                // <Route path="/leaderboard" component={LeaderBoard} />
+                // <Route path="/viewPoll" component={ViewPoll} />
+                // <Route path="/pollResults" component={PollResults} />
+                // <Route path="/Error" component={Error} /> */}
             </Router>
         );
 
@@ -32,4 +40,13 @@ class App extends React.Component {
 
 }
 
-export default connect()(App);
+function mapStateToProps({ authUser }) {
+    return {
+        authUser
+    };
+}
+
+export default connect(
+    mapStateToProps,
+    { handleInitialData }
+)(App);

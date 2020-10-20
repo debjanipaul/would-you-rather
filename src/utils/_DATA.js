@@ -2,7 +2,8 @@ let users = {
     sarahedo: {
         id: 'sarahedo',
         name: 'Sarah Edo',
-        avatarURL: '../../images/snow.jpg',
+        // avatarURL: '../../images/snow.jpg',
+        avatarURL: '../assets/user1.png',
         answers: {
             "8xf0y6ziyjabvozdd253nd": 'optionOne',
             "6ni6ok3ym7mf1p33lnez": 'optionOne',
@@ -14,7 +15,8 @@ let users = {
     tylermcginnis: {
         id: 'tylermcginnis',
         name: 'Tyler McGinnis',
-        avatarURL: '../../images/tyler.jpg',
+        // avatarURL: '../../images/tyler.jpg',
+        avatarURL: '../assets/user2.png',
         answers: {
             "vthrdm985a262al8qx3do": 'optionOne',
             "xj352vofupe1dqz9emx13r": 'optionTwo',
@@ -24,7 +26,8 @@ let users = {
     johndoe: {
         id: 'johndoe',
         name: 'John Doe',
-        avatarURL: '../../images/leaf.jpg',
+        // avatarURL: '../../images/leaf.jpg',
+        avatarURL: '../assets/user3.png',
         answers: {
             "xj352vofupe1dqz9emx13r": 'optionOne',
             "vthrdm985a262al8qx3do": 'optionTwo',
@@ -121,13 +124,13 @@ function generateUID() {
 
 export function _getUsers() {
     return new Promise((res, rej) => {
-        setTimeout(() => res({ ...users }), 1000)
+        setTimeout(() => res({...users }), 1000)
     })
 }
 
 export function _getQuestions() {
     return new Promise((res, rej) => {
-        setTimeout(() => res({ ...questions }), 1000)
+        setTimeout(() => res({...questions }), 1000)
     })
 }
 
