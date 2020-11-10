@@ -1,28 +1,38 @@
 import React from 'react'
 import '../styles/Nav.css'
-import { Link, Route, Switch } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { setAuthUser } from '../actions/authUser';
+import { connect } from 'react-redux';
 
 class Nav extends React.Component {
     render() {
+        const { authUser, users } = this.props;
+        console.log('users: ', users)
         return (
 
             <nav id="navContainer">
                 <Link to="/" className="navItems">Home</Link>
                 <Link to="/add" className="navItems">New Questions</Link>
                 <Link to="/leaderboard" className="navItems">Leader Board</Link>
-                {/* <div className="navItems">Home</div>
-                <div className="navItems">New Questions</div>
-                <div className="navItems">Leader Board</div> */}
                 <div className="navItems" id="namePicContainer">
-                    <div className=""><img src={require('../assets/user1.png')} alt="user1 pic"></img></div>
-                    <div className="">Debjani Paul</div>
+                    <div className=""><img src={users[authUser].avatarURL} alt="user1 pic"></img></div>
+                    <div className="">{users[authUser].name}</div>
                 </div>
                 <Link to="/signIn" className="navItems">Logout</Link>
-                {/* <div className="navItems">Logout</div> */}
             </nav>
 
         )
     }
 }
+function mapStateToProps({ users, authUser }) {
+    return {
+        authUser,
+        users
+    };
+}
 
-export default Nav;
+export default connect(
+    mapStateToProps,
+    { setAuthUser }
+)(Nav);
+

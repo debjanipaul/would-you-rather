@@ -18,10 +18,12 @@
 .questionsDiv {
     width: 50%;
     border: none;
-    color: #707372
+    color: #707372;
+    outline: none;
 }
 
 .active {
     background-color: #38c9b9;
-    color: #eeeeee
+    color: #eeeeee;
+    outline: none;
 }

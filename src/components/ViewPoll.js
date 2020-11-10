@@ -11,7 +11,7 @@ class ViewPoll extends React.Component {
                     </div>
                     <div id="items">
                         <div class="pic">
-                            <img src={require('../assets/user2 copy.png')} alt="user1 pic"></img>
+                            <img src='/images/user2 copy.png' alt="user1 pic"></img>
                         </div>
                         <div id='texts'>
                             <h3>Would You Rather...</h3>

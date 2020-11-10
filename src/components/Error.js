@@ -5,7 +5,7 @@ class Error extends React.Component {
         return (
             <div id="errContainer">
                 <h1>4o4</h1>
-                <img src={require('../assets/signInNinjaLogo.png')} alt="user1 pic"></img>
+                <img src='/images/signInNinjaLogo.png' alt="user1 pic"></img>
                 <p>OOPS! Would You Rather check another page...?</p>
             </div>
         )

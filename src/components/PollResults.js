@@ -12,7 +12,7 @@ class PollResults extends React.Component {
                     </div>
                     <div id="items">
                         <div class="pic">
-                            <img src={require('../assets/user1 large.png')} alt="user1 pic"></img>
+                            <img src='/images/user1 large.png' alt="user1 pic"></img>
                         </div>
                         <div id='texts'>
                             <h3>Results:</h3>

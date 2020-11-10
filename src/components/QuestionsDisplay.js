@@ -11,7 +11,7 @@ class QuestionsDisplay extends React.Component {
                     </div>
                     <div id="picAskContainer">
                         <div className="pic1">
-                            <img src={require('../assets/user1 copy.png')} alt="user1 pic"></img>
+                            <img src='/images/user1 copy.png' alt="user1 pic"></img>
                         </div>
                         <div id="questionDiv">
                             <h4>Would You Rather</h4>
@@ -28,7 +28,7 @@ class QuestionsDisplay extends React.Component {
                     </div>
                     <div id="picAskContainer">
                         <div className="pic1">
-                            <img src={require('../assets/user2 copy.png')} alt="user2 pic"></img>
+                            <img src='/images/user2 copy.png' alt="user2 pic"></img>
                         </div>
                         <div id="questionDiv">
                             <h4>Would You Rather</h4>
@@ -45,7 +45,7 @@ class QuestionsDisplay extends React.Component {
                     </div>
                     <div id="picAskContainer">
                         <div className="pic1">
-                            <img src={require('../assets/user3 copy.png')} alt="user3 pic"></img>
+                            <img src='/images/user3 copy.png' alt="user3 pic"></img>
                         </div>
                         <div id="questionDiv">
                             <h4>Would You Rather</h4>

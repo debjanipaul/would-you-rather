@@ -22,6 +22,7 @@ class SignIn extends React.Component {
         e.preventDefault();
         const { setAuthUser } = this.props;
         const authUser = this.state.value;
+        console.log('signin', authUser)
 
         new Promise((res, rej) => {
             setTimeout(() => res(), 500);
@@ -47,10 +48,10 @@ class SignIn extends React.Component {
                         <h4>Welcome to the Would You Rather App</h4>
                         <p>Please Sign In to continue</p>
                         <div id="signInLogo">
-                            <img src={require('../assets/signInNinjaLogo.png')} alt="Sign in Logo"></img>
+                            <img src='/images/signInNinjaLogo.png' alt="Sign in Logo"></img>
                         </div>
                         <h3>Sign In</h3>
-                        <form onSubmit={this.handleSubmit}>
+                        <form >
                             <Dropdown
                                 placeholder='Select Friend'
                                 fluid
@@ -59,20 +60,20 @@ class SignIn extends React.Component {
                                 onChange={this.onChange}
                                 value={this.state.value}
                             />
-
-                            <Link to="/"><button className="submit">Login</button></Link>
+                            {/* <Link to=""><input type="submit" value="Submit" /></Link> */}
+                            {/* <Link to="/"><button className="submit">Login</button></Link> */}
                         </form>
+                        <button className="submit" onClick={this.handleSubmit}>Login</button>
                     </div>
                 </div>
             </div>
-
         )
     }
 }
-const ConnectedSiginForm = connect(
-    mapStateToProps,
-    { setAuthUser }
-)(SignIn);
+// const ConnectedSigninForm = connect(
+//     mapStateToProps,
+//     { setAuthUser }
+// )(SignIn);
 
 function mapStateToProps({ users }) {
     return {
@@ -80,4 +81,9 @@ function mapStateToProps({ users }) {
     };
 }
 
-export default SignIn;
+// export default ConnectedSigninForm;
+
+export default connect(
+    mapStateToProps,
+    { setAuthUser }
+)(SignIn);

@@ -10,7 +10,7 @@ class LeaderBoard extends React.Component {
                 <Nav />
                 <div id="itemsContainer1">
                     <div class="pic2">
-                        <img src={require('../assets/user1 copy.png')} alt="user1 pic"></img>
+                        <img src='/images/user1 copy.png' alt="user1 pic"></img>
                     </div>
                     <div id='midSection'>
                         <h3>Jenny Hess</h3>
@@ -31,7 +31,7 @@ class LeaderBoard extends React.Component {
 
                 <div id="itemsContainer1">
                     <div class="pic2">
-                        <img src={require('../assets/user2 copy.png')} alt="user1 pic"></img>
+                        <img src='/images/user2 copy.png' alt="user1 pic"></img>
                     </div>
                     <div id='midSection'>
                         <h3>Eliot Fu</h3>
@@ -52,7 +52,7 @@ class LeaderBoard extends React.Component {
 
                 <div id="itemsContainer1">
                     <div class="pic2">
-                        <img src={require('../assets/user3 copy.png')} alt="user1 pic"></img>
+                        <img src='/images/user3 copy.png' alt="user1 pic"></img>
                     </div>
                     <div id='midSection'>
                         <h3>Stevie Feliciano</h3>
