@@ -4,6 +4,8 @@ let users = {
         name: 'Julie Edo',
         // avatarURL: '../../images/snow.jpg',
         avatarURL: '/images/user1.png',
+        avatarURL1: '/images/user1 copy.png',
+        avatarURL2: '/images/user1 large.png',
         answers: {
             "8xf0y6ziyjabvozdd253nd": 'optionOne',
             "6ni6ok3ym7mf1p33lnez": 'optionOne',
@@ -17,6 +19,8 @@ let users = {
         name: 'Mary Smith',
         // avatarURL: '../../images/tyler.jpg',
         avatarURL: '/images/user2.png',
+        avatarURL1: '/images/user2 copy.png',
+        avatarURL2: '/images/user2 large.png',
         answers: {
             "vthrdm985a262al8qx3do": 'optionOne',
             "xj352vofupe1dqz9emx13r": 'optionTwo',
@@ -28,6 +32,8 @@ let users = {
         name: 'John Paul',
         // avatarURL: '../../images/leaf.jpg',
         avatarURL: '/images/user3.png',
+        avatarURL1: '/images/user3 copy.png',
+        avatarURL2: '/images/user3 large.png',
         answers: {
             "xj352vofupe1dqz9emx13r": 'optionOne',
             "vthrdm985a262al8qx3do": 'optionTwo',

@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 class Nav extends React.Component {
     render() {
         const { authUser, users } = this.props;
-        console.log('users: ', users)
+        // console.log('users: ', users)
         return (
 
             <nav id="navContainer">

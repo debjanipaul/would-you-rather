@@ -8,17 +8,18 @@ import '../styles/Nav.css'
 
 class Home extends React.Component {
     state = {
-        'questionsToDisplay': 'unanswered',
+        'questionStatus': 'unanswered',
         'activeTab': 'unanswered'
     };
     handleTabChange = (e, tab) => {
         this.setState(() => ({
-            activeTab: tab
+            activeTab: tab,
+            questionStatus: tab
         }));
     };
 
     render() {
-        const { activeTab } = this.state;
+        const { questionStatus, activeTab } = this.state;
         return (
             <div>
                 <Nav />
@@ -35,14 +36,22 @@ class Home extends React.Component {
                     {activeTab === 'unanswered' &&
                         <div>
                             {this.props.unansweredQuestionIds.map(id => (
-                                <QuestionsDisplay id={id} key={id} />
+                                <QuestionsDisplay
+                                    id={id}
+                                    key={id}
+                                    questionStatus={questionStatus}
+                                />
                             ))}
                         </div>
                     }
                     {activeTab === 'answered' &&
                         <div>
                             {this.props.answeredQuestionIds.map(id => (
-                                <QuestionsDisplay id={id} key={id} />
+                                <QuestionsDisplay
+                                    id={id}
+                                    key={id}
+                                    questionStatus={questionStatus}
+                                />
                             ))}
                         </div>
                     }
@@ -54,15 +63,16 @@ class Home extends React.Component {
 }
 
 function mapStateToProps({ questions, authUser, users }) {
-    console.log('authUser:', authUser)
-    console.log('users:', users)
-    console.log('questions:', questions)
+    // console.log('authUser:', authUser)
+    // console.log('users:', users)
+    // console.log('questions:', questions)
+
     const answeredQuestionIds = Object.keys(users[authUser].answers).sort((a, b) => questions[b].timestamp - questions[a].timestamp);
     const unansweredQuestionIds = Object.keys(questions).filter(q => !answeredQuestionIds.includes(q)).sort((a, b) => questions[b].timestamp - questions[a].timestamp);
 
     return {
         answeredQuestionIds,
-        unansweredQuestionIds
+        unansweredQuestionIds,
     }
 }
 

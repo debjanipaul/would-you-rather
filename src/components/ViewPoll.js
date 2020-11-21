@@ -1,38 +1,92 @@
 import React from 'react'
 import '../styles/ViewPoll.css'
+import Nav from './Nav'
+import { connect } from 'react-redux';
+import PollResults from './PollResults'
+import { handleSaveQuestionAnswer } from '../actions/users';
 
 class ViewPoll extends React.Component {
+    state = {
+        value: ''
+    };
+
+    handleChange = (e) => {
+        this.setState({
+            value: e.target.value
+        });
+    }
+
+    handleSubmit = (e) => {
+        console.log("submit", this.props.authUser, this.props.id, this.state.value)
+        e.preventDefault();
+        if (this.state.value !== '') {
+            const { authUser, question, id, handleSaveQuestionAnswer } = this.props;
+            handleSaveQuestionAnswer(authUser, id, this.state.value);
+        }
+    };
+
+
     render() {
+        const { question, author, user, id, questionStatus } = this.props;
         return (
             <div>
+                <Nav />
                 <div id="itemsContainer">
                     <div id="headingDiv">
-                        <h4>Jenny Hess asks:</h4>
+                        <h4>{author.name} asks:</h4>
                     </div>
                     <div id="items">
-                        <div class="pic">
-                            <img src='/images/user2 copy.png' alt="user1 pic"></img>
+                        <div className="pic">
+                            <img src={author.avatarURL1} alt="user1 pic"></img>
                         </div>
                         <div id='texts'>
                             <h3>Would You Rather...</h3>
-                            <form>
+                            <form >
                                 <label>
-                                    <input type="radio" value="option1" checked={true} />
-                                     find $50 yourself
+                                    <input
+                                        type="radio"
+                                        name="options"
+                                        value="optionOne"
+                                        checked={this.state.value === 'optionOne'}
+                                        onChange={this.handleChange}
+                                    />
+                                    {question.optionOne.text}
                                 </label>
                                 <label>
-                                    <input type="radio" value="option2" />
-                                    have your best friend find $500
+                                    <input
+                                        type="radio"
+                                        name="options"
+                                        value="optionTwo"
+                                        checked={this.state.value === 'optionTwo'}
+                                        onChange={this.handleChange}
+                                    />
+                                    {question.optionTwo.text}
                                 </label>
                             </form>
-                            <button id='submit'>Submit</button>
+                            <button id='submit' onClick={this.handleSubmit}>Submit</button>
                         </div>
                     </div>
                 </div>
-
-            </div>
+            </div >
         )
     }
-
 }
-export default ViewPoll;
+
+function mapStateToProps({ authUser, users, questions }, { id, questionStatus }) {
+
+    let question = questions[id];
+    const author = question ? users[question.author] : '';
+    const user = users[authUser];
+    // console.log('question', question, id)
+
+    return {
+        question: question ? question : null,
+        author,
+        questionStatus,
+        authUser,
+        user,
+        id
+    }
+}
+
+export default connect(mapStateToProps, { handleSaveQuestionAnswer })(ViewPoll);

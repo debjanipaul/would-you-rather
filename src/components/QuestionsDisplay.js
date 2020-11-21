@@ -1,56 +1,39 @@
 import React from 'react'
 import '../styles/QuestionsDisplay.css'
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 class QuestionsDisplay extends React.Component {
     render() {
+        const { question, author, user, id, questionStatus } = this.props;
+
+        let text = ''
+        let questionStatusLink = `/question/${id}`
+
+        if (questionStatus === 'answered') {
+            text = 'View Result';
+
+        } else if (questionStatus === 'unanswered') {
+            text = 'View Poll';
+        }
+
         return (
             <div>
                 <div id="questionsContainer">
                     <div id='name'>
-                        <h4>Jenny Hess asks:</h4>
+                        <h4>{author.name} asks:</h4>
                     </div>
                     <div id="picAskContainer">
                         <div className="pic1">
-                            <img src='/images/user1 copy.png' alt="user1 pic"></img>
+                            <img src={author.avatarURL1} alt="user1 pic"></img>
                         </div>
                         <div id="questionDiv">
                             <h4>Would You Rather</h4>
-                            <p>Drink Tea...</p>
-                            <button>View Poll</button>
-                        </div>
+                            <p>{question.optionOne.text}</p>
+                            <Link to={questionStatusLink}>
+                                <button>{text}</button>
+                            </Link>
 
-                    </div>
-                </div>
-
-                <div id="questionsContainer">
-                    <div id='name'>
-                        <h4>Eliot Fu asks:</h4>
-                    </div>
-                    <div id="picAskContainer">
-                        <div className="pic1">
-                            <img src='/images/user2 copy.png' alt="user2 pic"></img>
-                        </div>
-                        <div id="questionDiv">
-                            <h4>Would You Rather</h4>
-                            <p>Go to movie...</p>
-                            <button>View Poll</button>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div id="questionsContainer">
-                    <div id='name'>
-                        <h4>Jenny Hess asks:</h4>
-                    </div>
-                    <div id="picAskContainer">
-                        <div className="pic1">
-                            <img src='/images/user3 copy.png' alt="user3 pic"></img>
-                        </div>
-                        <div id="questionDiv">
-                            <h4>Would You Rather</h4>
-                            <p>Climb a mountain...</p>
-                            <button>View Poll</button>
                         </div>
 
                     </div>
@@ -60,4 +43,20 @@ class QuestionsDisplay extends React.Component {
     }
 }
 
-export default QuestionsDisplay;
+function mapStateToProps({ authUser, users, questions }, { id, questionStatus }) {
+
+    let question = questions[id];
+    const author = question ? users[question.author] : '';
+    const user = users[authUser];
+    // console.log('question', question, id)
+
+
+    return {
+        question: question ? question : null,
+        author,
+        questionStatus,
+        user
+    }
+}
+
+export default connect(mapStateToProps)(QuestionsDisplay);

@@ -19,6 +19,12 @@
 
 .pic {
     border-right: 2px solid #dde0e0;
-    padding: 5%;
-    padding-top: 40%;
+    /* padding: 5%; */
+    padding-top: 15%;
+}
+
+#texts {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
 }

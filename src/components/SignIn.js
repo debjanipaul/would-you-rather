@@ -51,7 +51,7 @@ class SignIn extends React.Component {
                             <img src='/images/signInNinjaLogo.png' alt="Sign in Logo"></img>
                         </div>
                         <h3>Sign In</h3>
-                        <form >
+                        <form className="signInNames">
                             <Dropdown
                                 placeholder='Select Friend'
                                 fluid
