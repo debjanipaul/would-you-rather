@@ -28,3 +28,23 @@
     flex-direction: column;
     width: 100%;
 }
+
+h4 {
+    margin-top: 0px;
+}
+
+.voteContainer {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: -10px;
+}
+
+.yourVote {
+    color: white;
+    font-size: 10px;
+    padding: 3px;
+    border: 1px solid orangered;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    background-color: orangered;
+}

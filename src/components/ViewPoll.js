@@ -2,7 +2,6 @@ import React from 'react'
 import '../styles/ViewPoll.css'
 import Nav from './Nav'
 import { connect } from 'react-redux';
-import PollResults from './PollResults'
 import { handleSaveQuestionAnswer } from '../actions/users';
 
 class ViewPoll extends React.Component {

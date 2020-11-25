@@ -15,10 +15,10 @@ export function getInitialData() {
     }));
 }
 
-export function saveQuestion(info) {
-    return _saveQuestion(info);
+export function saveQuestion(question) {
+    return _saveQuestion(question);
 }
 
 export function saveQuestionAnswer(authUser, qid, answer) {
-    return _saveQuestionAnswer({ authUser, qid, answer });
+    return _saveQuestionAnswer({ authedUser: authUser, qid, answer });
 }

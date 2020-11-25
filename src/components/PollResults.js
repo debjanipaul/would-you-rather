@@ -6,7 +6,17 @@ import { connect } from 'react-redux';
 
 class PollResults extends React.Component {
     render() {
-        const { question, author, user, id, questionStatus } = this.props;
+        const { question, author, user, authUser, id, questionStatus } = this.props;
+        const optionOneTotal = question.optionOne.votes.length;
+        const optionTwoTotal = question.optionTwo.votes.length;
+        const totalVotes = optionOneTotal + optionTwoTotal;
+        const optionOnePercent = Math.round((optionOneTotal / totalVotes) * 100);
+        const optionTwoPercent = Math.round((optionTwoTotal / totalVotes) * 100);
+        console.log(optionOnePercent, optionTwoPercent,)
+
+
+        const userVote = user.answers[question.id];
+
         return (
             <div>
                 <Nav />
@@ -21,12 +31,30 @@ class PollResults extends React.Component {
                         <div id='texts'>
                             <h3>Results:</h3>
                             <div id="result1Container">
+                                <div className="voteContainer">
+                                    {question.optionOne.votes.includes(authUser) ? (
+                                        <div className="yourVote">
+                                            &#10003; You Voted
+                                        </div>
+                                    ) : null}
+                                </div>
                                 <h4>{question.optionOne.text}</h4>
-                                <Progress percent={44} progress label='2 out of 3 items' />
+                                <Progress percent={optionOnePercent} progress>
+                                    {optionOneTotal} out of {totalVotes} users
+                                </Progress>
                             </div>
                             <div id="result1Container1">
+                                <div className="voteContainer">
+                                    {question.optionTwo.votes.includes(authUser) ? (
+                                        <div className="yourVote">
+                                            &#10003; You Voted
+                                        </div>
+                                    ) : null}
+                                </div>
                                 <h4>{question.optionTwo.text}</h4>
-                                <Progress percent={33.3} progress label='1 out of 3 items' />
+                                <Progress percent={optionTwoPercent} progress>
+                                    {optionTwoTotal} out of {totalVotes} users
+                                </Progress>
                             </div>
                         </div>
                     </div>
@@ -47,7 +75,8 @@ function mapStateToProps({ authUser, users, questions }, { id, questionStatus })
         question: question ? question : null,
         author,
         questionStatus,
-        user
+        user,
+        authUser
     }
 }
 

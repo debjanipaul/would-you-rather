@@ -31,7 +31,9 @@ class App extends React.Component {
                         <Switch>
                             <Route exact={true} path="/" component={Home} />
                             <Route path="/question/:id" component={QuestionPage} />
-                            {/* <Route path="/question/:id/results" component={PollResults} /> */}
+                            <Route path="/add" component={NewQuestion} />
+                            <Route path="/leaderboard" component={LeaderBoard} />
+                            <Route path="/Error" component={Error} />
                         </Switch>
 
                     )}
