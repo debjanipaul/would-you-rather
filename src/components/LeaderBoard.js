@@ -10,18 +10,18 @@ class LeaderBoard extends React.Component {
         return (
             <div>
                 <Nav />
-                {userData.map(user => (
-                    <div id="itemsContainer1">
-                        <div class="pic2">
+                {userData.map((user, idx) => (
+                    <div id="itemsContainer1" key={idx}>
+                        <div className="pic2">
                             <img src={user.avatarURL} alt="user1 pic"></img>
                         </div>
                         <div id='midSection'>
                             <h3>{user.name}</h3>
-                            <div class="QuestPoints">
+                            <div className="QuestPoints">
                                 <p className="QuestPointsItems">Answered Questions</p>
                                 <p className="QuestPointsItems1">{user.answerCount}</p>
                             </div>
-                            <div class="QuestPoints">
+                            <div className="QuestPoints">
                                 <p className="QuestPointsItems">Created Questions</p>
                                 <p className="QuestPointsItems1">{user.questionCount}</p>
                             </div>
@@ -49,7 +49,7 @@ function mapStateToProps({ users }) {
         }))
         .sort((a, b) => a.total - b.total)
         .reverse();
-    console.log('userData', userData);
+    //console.log('userData', userData);
     return {
         userData
     };

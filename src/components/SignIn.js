@@ -1,8 +1,7 @@
 import React from 'react'
 import '../styles/SignIn.css'
-import { Dropdown, Button } from 'semantic-ui-react'
+import { Dropdown } from 'semantic-ui-react'
 import "semantic-ui-css/semantic.min.css";
-import { Link, Route, Switch } from "react-router-dom";
 import { connect } from 'react-redux';
 import { setAuthUser } from '../actions/authUser';
 
@@ -22,7 +21,7 @@ class SignIn extends React.Component {
         e.preventDefault();
         const { setAuthUser } = this.props;
         const authUser = this.state.value;
-        console.log('signin', authUser)
+        //console.log('signin', authUser)
 
         new Promise((res, rej) => {
             setTimeout(() => res(), 500);
@@ -41,6 +40,8 @@ class SignIn extends React.Component {
     };
 
     render() {
+        const { value } = this.state;
+        const disabled = value === '' ? true : false;
         return (
             <div>
                 <div id="signInContainer">
@@ -60,28 +61,20 @@ class SignIn extends React.Component {
                                 onChange={this.onChange}
                                 value={this.state.value}
                             />
-                            {/* <Link to=""><input type="submit" value="Submit" /></Link> */}
-                            {/* <Link to="/"><button className="submit">Login</button></Link> */}
                         </form>
-                        <button className="submit" onClick={this.handleSubmit}>Login</button>
+                        <button className="submit" onClick={this.handleSubmit} disabled={disabled}>Login</button>
                     </div>
                 </div>
             </div>
         )
     }
 }
-// const ConnectedSigninForm = connect(
-//     mapStateToProps,
-//     { setAuthUser }
-// )(SignIn);
 
 function mapStateToProps({ users }) {
     return {
         users: Object.values(users)
     };
 }
-
-// export default ConnectedSigninForm;
 
 export default connect(
     mapStateToProps,

@@ -17,17 +17,17 @@ class ViewPoll extends React.Component {
     }
 
     handleSubmit = (e) => {
-        console.log("submit", this.props.authUser, this.props.id, this.state.value)
+        //console.log("submit", this.props.authUser, this.props.id, this.state.value)
         e.preventDefault();
         if (this.state.value !== '') {
-            const { authUser, question, id, handleSaveQuestionAnswer } = this.props;
+            const { authUser, id, handleSaveQuestionAnswer } = this.props;
             handleSaveQuestionAnswer(authUser, id, this.state.value);
         }
     };
 
 
     render() {
-        const { question, author, user, id, questionStatus } = this.props;
+        const { question, author } = this.props;
 
         if (question === null || author === '') {
             return <Error />;

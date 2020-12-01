@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 class QuestionsDisplay extends React.Component {
     render() {
-        const { question, author, user, id, questionStatus } = this.props;
+        const { question, author, id, questionStatus } = this.props;
 
         let text = ''
         let questionStatusLink = `/question/${id}`

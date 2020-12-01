@@ -7,13 +7,13 @@ import Error from './Error'
 
 class PollResults extends React.Component {
     render() {
-        const { question, author, user, authUser, id, questionStatus } = this.props;
+        const { question, author, authUser } = this.props;
         const optionOneTotal = question.optionOne.votes.length;
         const optionTwoTotal = question.optionTwo.votes.length;
         const totalVotes = optionOneTotal + optionTwoTotal;
         const optionOnePercent = Math.round((optionOneTotal / totalVotes) * 100);
         const optionTwoPercent = Math.round((optionTwoTotal / totalVotes) * 100);
-        console.log(optionOnePercent, optionTwoPercent,)
+        //console.log(optionOnePercent, optionTwoPercent,)
 
         if (question === null || author === '') {
             return <Error />;

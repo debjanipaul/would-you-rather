@@ -6,10 +6,7 @@ import SignIn from './SignIn'
 import Home from './Home'
 import NewQuestion from './NewQuestion'
 import LeaderBoard from './LeaderBoard'
-import ViewPoll from './ViewPoll'
-import PollResults from './PollResults'
 import Error from './Error'
-import QuestionsDisplay from './QuestionsDisplay'
 import QuestionPage from './QuestionPage'
 
 class App extends React.Component {
@@ -37,11 +34,6 @@ class App extends React.Component {
                         </Switch>
 
                     )}
-                {/* // <Route path="/add" component={NewQuestion} />
-                // <Route path="/leaderboard" component={LeaderBoard} />
-                <Route path="/viewPoll" component={ViewPoll} />
-                <Route path="/pollResults" component={PollResults} />
-                // <Route path="/Error" component={Error} /> */}
             </Router>
         );
 

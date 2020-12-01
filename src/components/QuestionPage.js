@@ -7,7 +7,7 @@ class QuestionPage extends Component {
     render() {
         const { authUserAnswers, match } = this.props;
         const id = match.params.id;
-        console.log('params', id)
+        //console.log('params', id)
         const answered = authUserAnswers.hasOwnProperty(id) ? true : false;
 
         return (
