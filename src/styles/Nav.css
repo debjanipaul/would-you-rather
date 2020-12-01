@@ -24,3 +24,15 @@
             margin-top: -8pt;
             margin-right: 2px;
         }
+        
+        #navContainer button {
+            width: 55px;
+            height: 30px;
+            padding: 5px;
+            outline: none;
+            margin-top: 10px;
+            border: 1px solid gray;
+            border-radius: 5px;
+            color: #38c9b9;
+            cursor: pointer;
+        }

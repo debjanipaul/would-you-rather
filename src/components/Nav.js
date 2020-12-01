@@ -5,6 +5,12 @@ import { setAuthUser } from '../actions/authUser';
 import { connect } from 'react-redux';
 
 class Nav extends React.Component {
+
+    handleLogout = e => {
+        e.preventDefault();
+        this.props.setAuthUser(null);
+    };
+
     render() {
         const { authUser, users } = this.props;
         // console.log('users: ', users)
@@ -18,7 +24,7 @@ class Nav extends React.Component {
                     <div className=""><img src={users[authUser].avatarURL} alt="user1 pic"></img></div>
                     <div className="">{users[authUser].name}</div>
                 </div>
-                <Link to="/signIn" className="navItems">Logout</Link>
+                <button className="navItems" onClick={this.handleLogout}>Logout</button>
             </nav>
 
         )

@@ -3,6 +3,7 @@ import '../styles/ViewPoll.css'
 import Nav from './Nav'
 import { connect } from 'react-redux';
 import { handleSaveQuestionAnswer } from '../actions/users';
+import Error from './Error'
 
 class ViewPoll extends React.Component {
     state = {
@@ -27,6 +28,10 @@ class ViewPoll extends React.Component {
 
     render() {
         const { question, author, user, id, questionStatus } = this.props;
+
+        if (question === null || author === '') {
+            return <Error />;
+        }
         return (
             <div>
                 <Nav />
@@ -71,7 +76,7 @@ class ViewPoll extends React.Component {
     }
 }
 
-function mapStateToProps({ authUser, users, questions }, { id, questionStatus }) {
+function mapStateToProps({ authUser, users, questions }, { id }) {
 
     let question = questions[id];
     const author = question ? users[question.author] : '';
@@ -81,7 +86,6 @@ function mapStateToProps({ authUser, users, questions }, { id, questionStatus })
     return {
         question: question ? question : null,
         author,
-        questionStatus,
         authUser,
         user,
         id

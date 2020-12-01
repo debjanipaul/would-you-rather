@@ -3,6 +3,7 @@ import '../styles/PollResults.css'
 import { Progress } from 'semantic-ui-react'
 import Nav from './Nav'
 import { connect } from 'react-redux';
+import Error from './Error'
 
 class PollResults extends React.Component {
     render() {
@@ -14,8 +15,9 @@ class PollResults extends React.Component {
         const optionTwoPercent = Math.round((optionTwoTotal / totalVotes) * 100);
         console.log(optionOnePercent, optionTwoPercent,)
 
-
-        const userVote = user.answers[question.id];
+        if (question === null || author === '') {
+            return <Error />;
+        }
 
         return (
             <div>
